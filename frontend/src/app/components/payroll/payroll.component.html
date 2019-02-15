@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+      <div class="col s5">
+        <div class="card">
+          <div class="card-content">
+            <form #payrollForm="ngForm" (ngSubmit)="addPayroll(payrollForm)">
+              <div class="row">
+                <div class="input-field">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedPayroll._id">
+                  <input type="text" name="idEmployee" #idEmployee="ngModel" [(ngModel)]="employeeService.selectedPayroll.idEmployee" 
+                  placeholder="Enter your Employee">
+                  <input type="text" name="mes" #mes="ngModel" [(ngModel)]="employeeService.selectedPayroll.mes" 
+                  placeholder="Enter your Month">
+                  <input type="text" name="importe" #importe="ngModel" [(ngModel)]="employeeService.selectedPayroll.importe" 
+                  placeholder="Enter your amount">
+                  <input type="text" name="irpf" #irpf="ngModel" [(ngModel)]="employeeService.selectedPayroll.irpf" 
+                  placeholder="Enter your IRPF">
+                  <div class="card-action">
+                    <div class="input-field col s12">
+                      <button class="btn" (click)="resetForm(payrollForm)">Clean</button>
+                      <button class="btn right">Save</button>
+                    </div>
+  
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col s7">
+        <table>
+          <thead>
+            <th>idEmpleado</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>mes</th>
+            <th>importe</th>
+            <th>irpf</th>
+            <th>Operadores</th>
+          </thead>
+          <tbody *ngFor="let employee of employeeService.employees">
+            <tr *ngFor="let payroll of employeeService.payrolls">
+              <td *ngIf="payroll.idEmployee == employee.idEmployee">{{payroll.idEmployee}}</td>
+              <td *ngIf="payroll.idEmployee == employee.idEmployee">{{employee.name}}</td>
+              <td *ngIf="payroll.idEmployee == employee.idEmployee">{{employee.lastName}}</td>
+              <td *ngIf="payroll.idEmployee == employee.idEmployee">{{payroll.mes}}</td>
+              <td *ngIf="payroll.idEmployee == employee.idEmployee">{{payroll.importe}}</td>
+              <td *ngIf="payroll.idEmployee == employee.idEmployee">{{payroll.irpf}}</td>
+              <td *ngIf="payroll.idEmployee == employee.idEmployee">
+                <a (click)="editPayroll(payroll)">
+                  <i class="material-icons">edit</i>
+                </a>
+                <a (click)="deletePayroll(payroll._id)">
+                    <i class="material-icons">delete</i>
+                  </a>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
