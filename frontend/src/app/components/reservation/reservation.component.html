@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+      <div class="col s5">
+        <div class="card">
+          <div class="card-content">
+            <form #reservationForm="ngForm" (ngSubmit)="addReservation(reservationForm)">
+              <div class="row">
+                <div class="input-field">
+                  <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="reservationService.selectedReservation._id">
+                  <input type="text" name="idUser" #idUser="ngModel" [(ngModel)]="userService.selectedReservation.idUser" 
+                  placeholder="Enter your User">
+                  <input type="text" name="numberTable" #numberTable="ngModel" [(ngModel)]="userService.selectedReservation.numberTable" 
+                  placeholder="Enter your Number Table">
+                  <input type="text" name="hourBegin" #hourBegin="ngModel" [(ngModel)]="userService.selectedReservation.hourBegin" 
+                  placeholder="Enter your Hour Begin">
+                  <div class="card-action">
+                    <div class="input-field col s12">
+                      <button class="btn" (click)="resetForm(reservationForm)">Clean</button>
+                      <button class="btn right">Save</button>
+                    </div>
+  
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col s7">
+        <table>
+          <thead>
+            <th>idUser</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Number Table</th>
+            <th>Hour Begin</th>
+          </thead>
+          <tbody *ngFor="let user of userService.users">
+            <tr *ngFor="let reservation of userService.reservations">
+              <td *ngIf="reservation.idUser == user.idUser">{{reservation.idUser}}</td>
+              <td *ngIf="reservation.idUser == user.idUser">{{user.name}}</td>
+              <td *ngIf="reservation.idUser == user.idUser">{{user.lastName}}</td>
+              <td *ngIf="reservation.idUser == user.idUser">{{reservation.numberTable}}</td>
+              <td *ngIf="reservation.idUser == user.idUser">{{reservation.hourBegin}}</td>
+              <td *ngIf="reservation.idUser == user.idUser">
+                <a (click)="editReservation(reservation)">
+                  <i class="material-icons">edit</i>
+                </a>
+                <a (click)="deleteReservation(reservation._id)">
+                    <i class="material-icons">delete</i>
+                  </a>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

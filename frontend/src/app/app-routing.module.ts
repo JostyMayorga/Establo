@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EmployeesComponent } from './components/employees/employees.component';
-import { PayrollComponent } from './components/payroll/payroll.component';
-import { VacationComponent } from './components/vacation/vacation.component';
+import { UsersComponent } from './components/users/users.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
+import { TableComponent } from './components/table/table.component';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { LoginadminComponent } from './loginadmin/loginadmin.component';
@@ -13,9 +13,9 @@ const routes: Routes = [
   {path:"home", component: HomeComponent},
   {path:"login", component: LoginComponent},
   {path:"loginadmin", component: LoginadminComponent},
-  {path:"employees", component: EmployeesComponent},
-  {path:"payroll", component: PayrollComponent},
-  {path:"vacation", component: VacationComponent},
+  {path:"users", component: UsersComponent},
+  {path:"reservation", component: ReservationComponent},
+  {path:"table", component: TableComponent},
   
 ];
 

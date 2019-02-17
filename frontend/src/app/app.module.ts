@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http'
 import { AppComponent } from './app.component';
-import { EmployeesComponent } from './components/employees/employees.component';
-import { PayrollComponent } from './components/payroll/payroll.component';
-import { VacationComponent } from './components/vacation/vacation.component';
+import { UsersComponent } from './components/users/users.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
+import { TableComponent } from './components/table/table.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -14,9 +14,9 @@ import { LoginadminComponent } from './loginadmin/loginadmin.component';
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeesComponent,
-    PayrollComponent,
-    VacationComponent,
+    UsersComponent,
+    ReservationComponent,
+    TableComponent,
     HomeComponent,
     LoginComponent,
     LoginadminComponent
