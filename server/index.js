@@ -14,9 +14,9 @@ app.use(express.json());
 app.use(cors({origin: 'http://localhost:4200'}))
 
 //Routes
-app.use("/api/employees",require('./routes/employee.routes'))
-app.use("/api/payrolls",require('./routes/payroll.routes'))
-app.use("/api/vacations",require('./routes/vacation.routes'))
+app.use("/api/users",require('./routes/user.routes'))
+app.use("/api/reservations",require('./routes/reservation.routes'))
+app.use("/api/tables",require('./routes/table.routes'))
 //Starting the server
 app.listen(app.get('port'), () => {
     console.log('Server on port', app.get('port'))
