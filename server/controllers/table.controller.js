@@ -10,7 +10,8 @@ tableCtrl.getTables = async (req, res) => {
 tableCtrl.createTable = async (req, res) => {
     const table = new Table({
         idTable: req.body.idTable,
-        drescription: req.body.drescription,
+        numberChair: req.body.numberChair,
+        description: req.body.description,
         state: req.body.state
     })
     await table.save();
@@ -27,7 +28,8 @@ tableCtrl.editTable = async (req, res) => {
     const {id} = req.params;
     const table = {
         idTable: req.body.idTable,
-        drescription: req.body.drescription,
+        numberChair: req.body.numberChair,
+        description: req.body.description,
         state: req.body.state
     }
     await Table.findByIdAndUpdate(id, {$set:table}, {new:true});
