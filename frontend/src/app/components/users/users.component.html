@@ -35,6 +35,8 @@
                 placeholder="Enter your email">
                 <input type="text" name="password" #password="ngModel" [(ngModel)]="userService.selectedUser.password" 
                 placeholder="Enter your password">
+                <input type="text" name="type" #type="ngModel" [(ngModel)]="userService.selectedUser.type" 
+                placeholder="Enter your type user">
                 <div class="card-action">
                   <div class="input-field col s12">
                     <button class="btn" (click)="resetForm(userForm)">Clean</button>
@@ -55,6 +57,7 @@
           <th>Last Name</th>
           <th>Email</th>
           <th>Password</th>
+          <th>Type</th>
         </thead>
         <tbody>
           <tr *ngFor="let user of userService.users">
@@ -63,6 +66,7 @@
             <td>{{user.lastName}}</td>
             <td>{{user.email}}</td>
             <td>{{user.password}}</td>
+            <td>{{user.type}}</td>
             <td>
               <a (click)="editUser(user)">
                 <i class="material-icons">edit</i>
