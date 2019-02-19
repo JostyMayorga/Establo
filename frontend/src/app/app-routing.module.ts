@@ -6,6 +6,7 @@ import { TableComponent } from './components/table/table.component';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { LoginadminComponent } from './loginadmin/loginadmin.component';
+
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
@@ -15,8 +16,7 @@ const routes: Routes = [
   {path:"loginadmin", component: LoginadminComponent},
   {path:"users", component: UsersComponent},
   {path:"reservation", component: ReservationComponent},
-  {path:"table", component: TableComponent},
-  
+  {path:"table", component: TableComponent}
 ];
 
 

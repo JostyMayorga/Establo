@@ -4,6 +4,8 @@ import { Table } from 'src/app/models/table';
 import { User } from 'src/app/models/user';
 import {NgForm} from '@angular/forms';
 
+declare var M: any;
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -18,17 +20,19 @@ export class TableComponent implements OnInit {
     this.getTables();
     this.getUsers();
   }
-
+  numberA: number = 10;
   addTable(form: NgForm){
     if(form.value._id){
       this.userService.putTable(form.value).subscribe(res =>{
-        
+      this.resetForm(form);
+      M.toast({html: 'Actualizado Satisfactoriamente'});
+      this.getTables();
       })
     }else{
 
     this.userService.postTable(form.value).subscribe(res => {
       this.resetForm(form);
-
+      M.toast({html: 'Guardado Satisfactoriamente'});
       this.getTables();
     });
   }
@@ -37,14 +41,14 @@ export class TableComponent implements OnInit {
   editTable(table: Table){
 
     this.userService.selectedTable = table;
+    
   }
 
   deleteTable(_id: string){
       if(confirm('Are you sure?')){
         this.userService.deleteTable(_id).subscribe (res => {
-
         this.getTables();
-        
+        M.toast({html: 'Eliminado Satisfactoriamente'});
       });
     }
 

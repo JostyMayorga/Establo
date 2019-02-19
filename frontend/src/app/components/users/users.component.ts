@@ -21,14 +21,18 @@ export class UsersComponent implements OnInit {
   addUser(form: NgForm){
     if(form.value._id){
       this.userService.putUser(form.value).subscribe(res =>{
-        
+        this.resetForm(form);
+
+        M.toast({html: 'Actualizado Satisfactoriamente'});
+  
+        this.getUsers();
       })
     }else{
 
     this.userService.postUser(form.value).subscribe(res => {
       this.resetForm(form);
 
-      M.toast({html: 'Save Successfully'})
+      M.toast({html: 'Guardado Satisfactoriamente'});
 
       this.getUsers();
     });
@@ -45,7 +49,7 @@ export class UsersComponent implements OnInit {
         this.userService.deleteUser(_id).subscribe (res => {
 
         this.getUsers();
-        
+        M.toast({html: 'Eliminado Satisfactoriamente'});
       });
     }
 

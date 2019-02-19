@@ -19,7 +19,7 @@ import { LoginadminComponent } from './loginadmin/loginadmin.component';
     TableComponent,
     HomeComponent,
     LoginComponent,
-    LoginadminComponent
+    LoginadminComponent,
   ],
   imports: [
     BrowserModule,
