@@ -1,3 +1,20 @@
-<p>
-  login works!
-</p>
+<div class="text-center center-login">
+	<div class="container">
+		<form class="form-signin">
+			<img class="mb-4" src="" alt="" width="72" height="72">
+			<h1 class="h3 mb-3 font-weight-normal">Iniciar sesión</h1>
+			<label for="inputEmail" class="sr-only">Email address</label>
+			<input [(ngModel)]="inputEmail" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="email" autocomplete="email" required>
+			<label for="inputPassword" class="sr-only">Password</label>
+			<input [(ngModel)]="inputPassword" [ngModelOptions]="{standalone: true}" type="password" class="form-control form-control-lg rounded-0" id="password" required>
+				<div class="checkbox mb-3">
+					<label>
+					<input type="checkbox" value="remember-me"> Recordar mi cuenta
+					</label>
+				</div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" (click)="login()">Iniciar sesión</button>
+			<a class="btn btn-lg btn-secondary btn-block text-white" href="registro">Registrarse</a>
+			<p class="mt-5 mb-3 text-muted">&copy; El Establo 2018-2019</p>
+		</form>
+	</div>
+</div>

@@ -10,6 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { LoginadminComponent } from './loginadmin/loginadmin.component';
+import { RegistroComponent } from './registro/registro.component';
+import { ReservaComponent } from './reserva/reserva.component';
+import { AdminlocalComponent } from './adminlocal/adminlocal.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { LoginadminComponent } from './loginadmin/loginadmin.component';
     HomeComponent,
     LoginComponent,
     LoginadminComponent,
+    RegistroComponent,
+    ReservaComponent,
+    AdminlocalComponent,
   ],
   imports: [
     BrowserModule,

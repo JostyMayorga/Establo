@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service'
 import { Reservation } from 'src/app/models/reservation';
 import { User } from 'src/app/models/user';
+import { Router } from '@angular/router';
 import {NgForm} from '@angular/forms';
+
+declare var M: any;
 
 @Component({
   selector: 'app-reservation',
@@ -12,23 +15,31 @@ import {NgForm} from '@angular/forms';
 })
 export class ReservationComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router:Router ) { }
 
   ngOnInit() {
+    this.verifyAdmin();
     this.getReservations();
     this.getUsers();
   }
 
+  verifyAdmin(){
+    if (localStorage.getItem("verify") != "1"){
+      this.router.navigate(["login"]);
+    }
+  }
   addReservation(form: NgForm){
     if(form.value._id){
       this.userService.putReservation(form.value).subscribe(res =>{
-        
+        this.resetForm(form);
+        M.toast({html: 'Actualizado Satisfactoriamente'});
+        this.getReservations();
       })
     }else{
 
     this.userService.postReservation(form.value).subscribe(res => {
       this.resetForm(form);
-
+      M.toast({html: 'Guardado Satisfactoriamente'});
       this.getReservations();
     });
   }
@@ -43,7 +54,7 @@ export class ReservationComponent implements OnInit {
         this.userService.deleteReservation(_id).subscribe (res => {
 
         this.getReservations();
-        
+        M.toast({html: 'Eliminado Satisfactoriamente'});
       });
     }
 

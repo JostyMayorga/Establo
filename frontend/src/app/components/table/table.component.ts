@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service'
 import { Table } from 'src/app/models/table';
 import { User } from 'src/app/models/user';
+import { Router } from '@angular/router';
 import {NgForm} from '@angular/forms';
 
 declare var M: any;
@@ -14,12 +15,22 @@ declare var M: any;
 })
 export class TableComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  next: number;
+
+  constructor(private userService: UserService, private router:Router ) { }
 
   ngOnInit() {
+    this.verifyAdmin();
     this.getTables();
     this.getUsers();
   }
+
+  verifyAdmin(){
+    if (localStorage.getItem("verify") != "1"){
+      this.router.navigate(["login"]);
+    }
+  }
+
   numberA: number = 10;
   addTable(form: NgForm){
     if(form.value._id){
@@ -57,6 +68,8 @@ export class TableComponent implements OnInit {
   getTables(){
     this.userService.getTables().subscribe(res=>{
       this.userService.tables = res as Table[];
+      let sz = this.userService.tables.length;
+      this.next = res[sz-1].idTable + 1;
     })
   }
   getUsers(){

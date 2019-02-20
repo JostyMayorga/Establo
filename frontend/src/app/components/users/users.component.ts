@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service'
 import { User } from 'src/app/models/user';
 import {NgForm} from '@angular/forms';
+import { Router } from '@angular/router';
 
 declare var M: any;
 @Component({
@@ -12,10 +13,17 @@ declare var M: any;
 })
 export class UsersComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router:Router ) { }
 
   ngOnInit() {
+    this.verifyAdmin();
     this.getUsers();
+  }
+
+  verifyAdmin(){
+    if (localStorage.getItem("verify") != "1"){
+      this.router.navigate(["login"]);
+    }
   }
 
   addUser(form: NgForm){
@@ -58,7 +66,9 @@ export class UsersComponent implements OnInit {
   getUsers(){
     this.userService.getUsers().subscribe(res=>{
       this.userService.users = res as User[];
+      console.log(res)
     })
+    
   }
 
   resetForm(form?: NgForm){
