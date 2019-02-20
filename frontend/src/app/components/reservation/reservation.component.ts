@@ -4,6 +4,8 @@ import { Reservation } from 'src/app/models/reservation';
 import { User } from 'src/app/models/user';
 import {NgForm} from '@angular/forms';
 
+declare var M: any;
+
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',
@@ -22,13 +24,15 @@ export class ReservationComponent implements OnInit {
   addReservation(form: NgForm){
     if(form.value._id){
       this.userService.putReservation(form.value).subscribe(res =>{
-        
+        this.resetForm(form);
+        M.toast({html: 'Actualizado Satisfactoriamente'});
+        this.getReservations();
       })
     }else{
 
     this.userService.postReservation(form.value).subscribe(res => {
       this.resetForm(form);
-
+      M.toast({html: 'Guardado Satisfactoriamente'});
       this.getReservations();
     });
   }
@@ -43,7 +47,7 @@ export class ReservationComponent implements OnInit {
         this.userService.deleteReservation(_id).subscribe (res => {
 
         this.getReservations();
-        
+        M.toast({html: 'Eliminado Satisfactoriamente'});
       });
     }
 
