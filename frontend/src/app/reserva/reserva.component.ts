@@ -29,9 +29,20 @@ export class ReservaComponent implements OnInit {
   constructor(private userService: UserService, private router:Router ) { }
 
   ngOnInit() {
+    this.verify()
     this.getTables()
   }
 
+  verify(){
+    if (localStorage.getItem("verify") != "3"){
+      this.router.navigate(["login"]);
+    }
+  }
+
+  cerrarSesion(){
+    localStorage.setItem("verify","0")
+    this.router.navigate(["login"]);
+  }
   ingresarReserva(numTable){
     this.userService.getReservations().subscribe(res=>{
       this.userService.reservations = res as Reservation[];
@@ -66,6 +77,7 @@ export class ReservaComponent implements OnInit {
         console.log(reserva);
 
       M.toast({html: 'Guardado Satisfactoriamente'});
+      alert("Uso disponible de la mesa: 1 Hora");
 
       this.getReservations();
     });

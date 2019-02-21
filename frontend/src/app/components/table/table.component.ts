@@ -34,6 +34,11 @@ export class TableComponent implements OnInit {
     }
   }
 
+  cerrarSesion(){
+    localStorage.setItem("verify","0")
+    this.router.navigate(["login"]);
+  }
+
   ingresarMesa(){
 
     this.userService.getTables().subscribe(res=>{

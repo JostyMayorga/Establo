@@ -33,6 +33,11 @@ export class UsersComponent implements OnInit {
     }
   }
 
+  cerrarSesion(){
+    localStorage.setItem("verify","0")
+    this.router.navigate(["login"]);
+  }
+
   registrar(){
 
     this.userService.getUsers().subscribe(res=>{

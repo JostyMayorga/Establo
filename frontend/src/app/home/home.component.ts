@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    localStorage.setItem("verify", "2");
+    localStorage.setItem("verify", "0");
   }
 
 }

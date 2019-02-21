@@ -102,6 +102,12 @@ export class ReservationComponent implements OnInit {
       this.router.navigate(["login"]);
     }
   }
+
+  cerrarSesion(){
+    localStorage.setItem("verify","0")
+    this.router.navigate(["login"]);
+  }
+
   addReservation(reserva: Reservation){
     if(reserva._id){
       console.log("ingresó aquí")

@@ -1,8 +1,11 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="col s11">
   <a class="navbar-brand" href="#">Establo</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+</div>
+  <a type="button" style="text-align: right !important;" class="btn btn-secondary" (click)="cerrarSesion()">Cerrar Sesión</a>
 </nav>
 <div class="jumbotron">
     <div class="container">
@@ -65,32 +68,32 @@
 
       <form>
         <div class="form-group">
-            <input [(ngModel)]="input_id" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="_id" autocomplete="_id" required>
-            <input [(ngModel)]="inputId" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="id" autocomplete="id" required>
+            <input style="border: 1px solid #ced4da; border-radius: .25rem !important;" [(ngModel)]="input_id" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="_id" autocomplete="_id" required>
+            <input style="border: 1px solid #ced4da; border-radius: .25rem !important;" [(ngModel)]="inputId" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="id" autocomplete="id" required>
       
             <label for="exampleFormControlSelect1">Horario</label>
-      <select [(ngModel)]="inputHourbegin" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg rounded-0" id="hourbegin" autocomplete="hourbegin" required>
+      <select style="border: 1px solid #ced4da; border-radius: .25rem !important;" [(ngModel)]="inputHourbegin" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg rounded-0" id="hourbegin" autocomplete="hourbegin" required>
         <option *ngFor="let disp of disponible" value="{{disp}}">{{disp}}:00 Horas</option>
     </select>
       </div>
       <div class="form-group">
         <label for="exampleFormControlInput1">Nombre</label>
-        <input type="text" [value]="nombreUsuario" class="form-control" id="nombre">
+        <input style="border: 1px solid #ced4da; border-radius: .25rem !important;" type="text" [value]="nombreUsuario" class="form-control" id="nombre">
       </div>
       <div class="form-group">
         <label for="exampleFormControlInput1">Numero de Personas(Opcional)</label>
-        <input type="number" class="form-control" id="numPersonas" placeholder="0">
+        <input style="border: 1px solid #ced4da; border-radius: .25rem !important;" type="number" class="form-control" id="numPersonas" placeholder="0">
       </div>
       <div class="form-group">
         <label for="exampleFormControlTextarea1">Comentarios</label>
-        <textarea class="form-control" id="comentario" rows="3"></textarea>
+        <textarea style="border: 1px solid #ced4da; border-radius: .25rem !important;" class="form-control" id="comentario" rows="3"></textarea>
       </div>
   </form>
 
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-      <button type="button" (click)="ingresarReserva(table2.idTable)" class="btn btn-primary">Confirmar</button>
+      <button style="border-radius: .3rem !important; margin: auto !important; background: #FDA403; border: 1px solid transparent;" type="button" class="btn-lg btn-primary" data-dismiss="modal">Cancelar</button>
+      <button style="border-radius: .3rem !important; margin: auto !important; background: #FDA403; border: 1px solid transparent;" type="button" (click)="ingresarReserva(table2.idTable)" class="btn-lg btn-primary">Confirmar</button>
     </div>
   </div>
 </div>

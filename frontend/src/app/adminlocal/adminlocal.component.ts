@@ -29,8 +29,21 @@ export class AdminlocalComponent implements OnInit {
   constructor(private userService: UserService, private router:Router ) { }
 
   ngOnInit() {
+    this.verify();
     this.getTables();
     this.getUsers();
+  }
+
+  verify(){
+    if (localStorage.getItem("verify") != "2"){
+      this.router.navigate(["login"]);
+    }
+  }
+
+  cerrarSesion(){
+    
+    localStorage.setItem("verify","0")
+    this.router.navigate(["login"]);
   }
 
   changeStatus(){
