@@ -92,7 +92,8 @@ export class ReservationComponent implements OnInit {
   
   changingValue(event){
     console.log(event.target.selectedIndex);
-    localStorage.setItem("mesaSeleccionada", event.target.selectedIndex)
+    localStorage.setItem("mesaSeleccionada", (event.target.selectedIndex + 1))
+    console.log(localStorage.getItem("mesaSeleccionada"))
     this.open = true;
     this.getReservas()
   }
@@ -157,13 +158,12 @@ export class ReservationComponent implements OnInit {
       this.disponible = []
       let sz = this.userService.reservations.length;
       for (let i = 0; i < sz; i++) {
-        try {
-          if (res[localStorage.getItem("mesaSeleccionada")].numberTable == res[i].numberTable){
+
+          if (localStorage.getItem("mesaSeleccionada") == res[i].numberTable){
             this.reservas.push(new Reservation(res[i]._id, res[i].idReservation, res[i].idUser,res[i].numberTable,res[i].hourBegin));
+            console.log(this.reservas)
           }
-        } catch (error) {
-          
-        }
+
         
       }
       for (this.i =1; this.i<25; this.i++){
@@ -180,9 +180,8 @@ export class ReservationComponent implements OnInit {
         this.cont = 0;
         
       }
-      console.log(this.reservas)
 
-
+      this.getReservations();
     })
   }
 

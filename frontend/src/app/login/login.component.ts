@@ -36,7 +36,8 @@ export class LoginComponent implements OnInit {
         } else if (res[i].email == this.inputEmail && res[i].password == this.inputPassword && res[i].type==2){
           this.router.navigate(["adminlocal"]);
         } else if (res[i].email == this.inputEmail && res[i].password == this.inputPassword && res[i].type==3){
-          
+          localStorage.setItem("idUsuarioActual", res[i].idUser);
+          localStorage.setItem("nameUsuarioActual", res[i].name);
           this.router.navigate(["reserva"]);
         } else {
           console.log("Datos incorrectos")

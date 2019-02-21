@@ -18,7 +18,7 @@
 
         <div *ngFor="let table of tables" class="gallery_table col-lg-4 col-md-4 col-sm-4 col-xs-6">
           <img class="img-responsive row" src="assets/images/mesade{{table.numberChair}}.png">
-          <button type="button" class="btn btn-secondary" data-toggle="modal" [attr.data-target]="'#modal'+ table.idTable" >Reservar</button>
+          <button type="button" class="btn btn-secondary" (click)="cargarReservas(table.idTable)" data-toggle="modal" [attr.data-target]="'#modal'+ table.idTable" >Reservar</button>
         </div>
 <!--
         <div class="gallery_table col-lg-4 col-md-4 col-sm-4 col-xs-6">
@@ -65,18 +65,17 @@
 
       <form>
         <div class="form-group">
-      <label for="exampleFormControlSelect1">Horario</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+            <input [(ngModel)]="input_id" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="_id" autocomplete="_id" required>
+            <input [(ngModel)]="inputId" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="id" autocomplete="id" required>
+      
+            <label for="exampleFormControlSelect1">Horario</label>
+      <select [(ngModel)]="inputHourbegin" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg rounded-0" id="hourbegin" autocomplete="hourbegin" required>
+        <option *ngFor="let disp of disponible" value="{{disp}}">{{disp}}:00 Horas</option>
+    </select>
       </div>
       <div class="form-group">
         <label for="exampleFormControlInput1">Nombre</label>
-        <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+        <input type="text" [value]="nombreUsuario" class="form-control" id="nombre">
       </div>
       <div class="form-group">
         <label for="exampleFormControlInput1">Numero de Personas(Opcional)</label>
@@ -91,7 +90,7 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-      <button type="button" class="btn btn-primary">Confirmar</button>
+      <button type="button" (click)="ingresarReserva(table2.idTable)" class="btn btn-primary">Confirmar</button>
     </div>
   </div>
 </div>
