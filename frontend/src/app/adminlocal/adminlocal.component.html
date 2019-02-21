@@ -43,7 +43,7 @@
                   <input [(ngModel)]="inputId" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="id" autocomplete="id" required>
                   <input [(ngModel)]="inputNumberChair" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="numberchair" autocomplete="numerchair" required>
                   <input [(ngModel)]="inputDescription" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="description" autocomplete="description" required>
-                  <select [(ngModel)]="inputStatus" [ngModelOptions]="{standalone: true}" (change)="changingValue($event)" class="form-control" style="margin-left: 10px; margin-bottom: 10px;"  id="numbertable" autocomplete="numbertable" required>
+                  <select [(ngModel)]="inputStatus" [ngModelOptions]="{standalone: true}" class="form-control" style="margin-left: 10px; margin-bottom: 10px;"  id="numbertable" autocomplete="numbertable" required>
                     <option value="1">Habilitada</option>
                     <option value="2">Desahabilitada</option>
                   </select>

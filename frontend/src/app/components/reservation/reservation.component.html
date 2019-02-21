@@ -23,23 +23,23 @@
           <div class="card-content">
             <form>
               <div class="row">
-                <div class="input-field">
+                <div style="flex: 1 1 auto !important;" class="input-field">
                     <input [(ngModel)]="input_id" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="_id" autocomplete="_id" required>
                     <input [(ngModel)]="inputId" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="id" autocomplete="id" required>
-                    <select [(ngModel)]="inputIduser" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg rounded-0" id="idUser" autocomplete="idUser" required>
+                    <select style="border: 1px solid #ced4da; border-radius: .25rem !important;" [(ngModel)]="inputIduser" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg rounded-0" id="idUser" autocomplete="idUser" required>
                         <option *ngFor="let user of users" value="{{user.idUser}}">{{user.name}}</option>
                     </select>
-                  <select [(ngModel)]="inputNumbertable" [ngModelOptions]="{standalone: true}" (change)="changingValue($event)" class="form-control form-control-lg rounded-0" id="numbertable" autocomplete="numbertable" required>
+                  <select style=" margin-top: 10px; border: 1px solid #ced4da; border-radius: .25rem !important;" [(ngModel)]="inputNumbertable" [ngModelOptions]="{standalone: true}" (change)="changingValue($event)" class="form-control form-control-lg rounded-0" id="numbertable" autocomplete="numbertable" required>
                       <option *ngFor="let table of tables" value="{{table.idTable}}">{{table.idTable}} -  {{table.numberChair}} sillas - {{table.description}}</option>
                   </select>
 
-                  <select *ngIf="open == true" [(ngModel)]="inputHourbegin" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg rounded-0" id="hourbegin" autocomplete="hourbegin" required>
-                      <option *ngFor="let disp of disponible" value="{{disp}}">{{disp}}</option>
+                  <select style=" margin-top: 10px; border: 1px solid #ced4da; border-radius: .25rem !important;" *ngIf="open == true" [(ngModel)]="inputHourbegin" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg rounded-0" id="hourbegin" autocomplete="hourbegin" required>
+                      <option style="border: 1px solid #ced4da; border-radius: .25rem !important;" *ngFor="let disp of disponible" value="{{disp}}">{{disp}}:00 Horas</option>
                   </select>
                   <div class="card-action">
                     <div class="input-field col s12">
-                      <button class="btn" (click)="resetForm(reservationForm)">Clean</button>
-                      <button class="btn right"(click)="ingresarReservacion()">Save</button>
+                      <button style="border-radius: .3rem !important; border: 1px solid transparent;" class="btn-primary btn-lg" (click)="resetForm(reservationForm)">Clean</button>
+                      <button style="border-radius: .3rem !important; border: 1px solid transparent;" class="btn-primary btn-lg right"(click)="ingresarReservacion()">Save</button>
                     </div>
   
                   </div>

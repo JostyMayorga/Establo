@@ -23,22 +23,22 @@
         <div class="card-content">
           <form>
             <div class="row">
-              <div class="input-field">
+              <div style="flex: 1 1 auto !important;" class="input-field">
                 <input [(ngModel)]="input_id" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="_id" autocomplete="_id" required>
                   <input [(ngModel)]="inputId" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="id" autocomplete="id" required>
-                  <select [(ngModel)]="inputNumberchair" [ngModelOptions]="{standalone: true}" (change)="ChangingValue($event)" class="form-control form-control-lg rounded-0" id="numberChair" autocomplete="numberChair" required>
+                  <select style="margin-bottom: 10px; border: 1px solid #ced4da; border-radius: .25rem !important;" [(ngModel)]="inputNumberchair" [ngModelOptions]="{standalone: true}" (change)="ChangingValue($event)" class="form-control form-control-lg rounded-0" id="numberChair" autocomplete="numberChair" required>
                     <option value='4'>4</option>
                     <option value='6'>6</option>
                   </select>
-                  <input [(ngModel)]="inputDescription" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="description" autocomplete="description" required>
-                  <select [(ngModel)]="inputStatus" [ngModelOptions]="{standalone: true}" (change)="ChangingValue($event)" class="form-control form-control-lg rounded-0" id="status" autocomplete="status" required>
+                  <input style="margin-bottom: 10px; border: 1px solid #ced4da; border-radius: .25rem !important;" [(ngModel)]="inputDescription" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="description" autocomplete="description" required>
+                  <select style="border: 1px solid #ced4da; border-radius: .25rem !important;" [(ngModel)]="inputStatus" [ngModelOptions]="{standalone: true}" (change)="ChangingValue($event)" class="form-control form-control-lg rounded-0" id="status" autocomplete="status" required>
                     <option value='1'>Habilitada</option>
                     <option value='2'>Deshabilitada</option>
                   </select>
                   <div class="card-action">
                   <div class="input-field col s12">
-                    <button class="btn" (click)="resetForm(tableForm)">Clean</button>
-                    <button class="btn right" (click)="ingresarMesa()">Save</button>
+                    <button style="border-radius: .3rem !important; border: 1px solid transparent;" class="btn-primary btn-lg" (click)="resetForm(tableForm)">Clean</button>
+                    <button style="border-radius: .3rem !important; border: 1px solid transparent;" class="btn-primary btn-lg right" (click)="ingresarMesa()">Save</button>
                   </div>
 
                 </div>
