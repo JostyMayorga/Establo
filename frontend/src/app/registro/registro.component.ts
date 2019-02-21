@@ -3,6 +3,8 @@ import { UserService } from '../services/user.service'
 import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
 
+declare var M: any;
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -44,8 +46,8 @@ export class RegistroComponent implements OnInit {
         this.userService.users = res as User[];});
     })
 
-    
-
+    M.toast({html: 'Usuario Creado Satisfactoriamente'});
+    this.router.navigate(["login"]);
   }
 
   addUser(user: User){

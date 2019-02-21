@@ -127,10 +127,5 @@ export class TableComponent implements OnInit {
     
   }
 
-  resetForm(form?: NgForm){
-    if (form){
-      form.reset();
-      this.userService.selectedTable = new Table();
-    }
-  }
+  
 }

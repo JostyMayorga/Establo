@@ -204,10 +204,5 @@ export class ReservationComponent implements OnInit {
     })
   }
 
-  resetForm(form?: NgForm){
-    if (form){
-      form.reset();
-      this.userService.selectedReservation = new Reservation();
-    }
-  }
+  
 }
