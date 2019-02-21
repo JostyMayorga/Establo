@@ -1,3 +1,5 @@
+
+<!--
 <div class="text-center center-login">
 	<div class="container">
 		<form class="form-signin">
@@ -11,5 +13,31 @@
 			<a style="background-color: #6c757d; border-radius: .3rem !important;" class="btn-lg btn-secondary btn-block text-white" href="registro">Registrarse</a>
 			<p class="mt-5 mb-3 text-muted">&copy; El Establo 2018-2019</p>
 		</form>
+	</div>
+</div>	
+-->
+
+
+
+<div id="main">
+<div class="login-reg-panel">
+		
+							
+		<div class="register-info-box">
+			<span  id="notienescuenta">No tienes una cuenta?</span>
+			<a style="margin-top: 20px; background-color: #6c757d; border-radius: .3rem !important;" class="btn-lg btn-secondary btn-block text-white" href="registro">Registrarse</a>
+			
+		</div>
+							
+		<div  class="white-panel">
+			
+				<p id="txtInciarSesion">Iniciar Sesion</p>
+				<label for="inputEmail" class="sr-only">Email address</label>
+			<input style="margin: auto; text-align: center; margin-bottom: 10px; width: 400px; border: 1px solid #ced4da; border-radius: .25rem !important;" [(ngModel)]="inputEmail" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="email" autocomplete="email" placeholder="Correo" required>
+			<label for="inputPassword" class="sr-only">Password</label>
+			<input style="margin: auto; text-align: center; width: 400px; margin-bottom: 10px;border: 1px solid #ced4da; border-radius: .25rem !important;" [(ngModel)]="inputPassword" [ngModelOptions]="{standalone: true}" type="password" class="form-control form-control-lg rounded-0" id="password" placeholder="Contraseña" required>
+			<button style="margin: auto; text-align: center; width: 400px; border-radius: .3rem !important; margin: auto !important; background: #000000; border: 1px solid transparent;" class="btn-lg btn-primary btn-block" type="submit" (click)="login()">Iniciar sesión</button>
+			
+		</div>
 	</div>
 </div>
