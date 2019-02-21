@@ -5,34 +5,34 @@
                 <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                        <span style="margin-bottom: 8px;" class="input-group-text"><i style="color: #FDA403;" class="fa fa-user"></i></span>
                     </div>
-                    <input [(ngModel)]="inputName" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="name" autocomplete="name" required>
+                <span style="flex: 1 1 auto !important;"><input style="border: 1px solid #ced4da; border-radius: .25rem !important;" [(ngModel)]="inputName" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="name" autocomplete="name" placeholder=" Nombre" required></span>
                 </div>
                 <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                        <span style="margin-bottom: 8px;" class="input-group-text"><i style="color: #FDA403;" class="fa fa-user"></i></span>
                      </div>
-                     <input [(ngModel)]="inputApellido" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="apellido" autocomplete="apellido" required>
+                    <span style="flex: 1 1 auto !important;"><input style="border: 1px solid #ced4da; border-radius: .25rem !important;" [(ngModel)]="inputApellido" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="apellido" autocomplete="apellido" placeholder=" Apellido" required></span>
                 </div>
                 <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                        <span style="margin-bottom: 8px;" class="input-group-text"><i style="color: #FDA403;" class="fa fa-envelope"></i></span>
                     </div>
-                    <input [(ngModel)]="inputEmail" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="email" autocomplete="email" required>
+                    <span style="flex: 1 1 auto !important;"><input style="border: 1px solid #ced4da; border-radius: .25rem !important;" [(ngModel)]="inputEmail" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="email" autocomplete="email" placeholder=" Correo" required></span>
                 </div>
                 <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                        <span style="margin-bottom: 8px;" class="input-group-text"><i style="color: #FDA403;" class="fa fa-lock"></i></span>
                     </div>
-                    <input [(ngModel)]="inputPassword" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="password" autocomplete="password" required>
+                    <span style="flex: 1 1 auto !important;"><input style="border: 1px solid #ced4da; border-radius: .25rem !important;" [(ngModel)]="inputPassword" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="password" autocomplete="password" placeholder=" Contraseña" required></span>
                 </div>
                 <!-- form-group// -->                                      
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block" (click)="registrar()"> Crear cuenta  </button>
+                    <button style="border-radius: .3rem !important; background: #FDA403; border: 1px solid transparent;" type="submit" class="btn-lg btn-primary btn-block" (click)="registrar()"> Crear cuenta  </button>
                 </div>
                 <!-- form-group// -->      
                 <p class="text-center">Ya tienes una cuenta? <a href="login">Inicia sesión</a> </p>                                                                 
