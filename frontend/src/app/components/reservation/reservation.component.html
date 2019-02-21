@@ -21,22 +21,25 @@
       <div class="col s5">
         <div class="card">
           <div class="card-content">
-            <form #reservationForm="ngForm" (ngSubmit)="addReservation(reservationForm)">
+            <form>
               <div class="row">
                 <div class="input-field">
-                  <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedReservation._id">
-                  <input type="text" name="idReservation" #idReservation="ngModel" [(ngModel)]="userService.selectedReservation.idReservation" 
-                  placeholder="Enter your ID Reservation">
-                  <input type="text" name="idUser" #idUser="ngModel" [(ngModel)]="userService.selectedReservation.idUser" 
-                  placeholder="Enter your ID User">
-                  <input type="text" name="numberTable" #numberTable="ngModel" [(ngModel)]="userService.selectedReservation.numberTable" 
-                  placeholder="Enter your Number Table">
-                  <input type="text" name="hourBegin" #hourBegin="ngModel" [(ngModel)]="userService.selectedReservation.hourBegin" 
-                  placeholder="Enter your Hour Begin">
+                    <input [(ngModel)]="input_id" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="_id" autocomplete="_id" required>
+                    <input [(ngModel)]="inputId" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="id" autocomplete="id" required>
+                    <select [(ngModel)]="inputIduser" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg rounded-0" id="idUser" autocomplete="idUser" required>
+                        <option *ngFor="let user of users" value="{{user.idUser}}">{{user.name}}</option>
+                    </select>
+                  <select [(ngModel)]="inputNumbertable" [ngModelOptions]="{standalone: true}" (change)="changingValue($event)" class="form-control form-control-lg rounded-0" id="numbertable" autocomplete="numbertable" required>
+                      <option *ngFor="let table of tables" value="{{table.idTable}}">{{table.idTable}} -  {{table.numberChair}} sillas - {{table.description}}</option>
+                  </select>
+
+                  <select *ngIf="open == true" [(ngModel)]="inputHourbegin" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg rounded-0" id="hourbegin" autocomplete="hourbegin" required>
+                      <option *ngFor="let disp of disponible" value="{{disp}}">{{disp}}</option>
+                  </select>
                   <div class="card-action">
                     <div class="input-field col s12">
                       <button class="btn" (click)="resetForm(reservationForm)">Clean</button>
-                      <button class="btn right">Save</button>
+                      <button class="btn right"(click)="ingresarReservacion()">Save</button>
                     </div>
   
                   </div>

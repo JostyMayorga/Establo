@@ -21,24 +21,24 @@
     <div class="col s5">
       <div class="card">
         <div class="card-content">
-          <form #tableForm="ngForm" (ngSubmit)="addTable(tableForm)">
+          <form>
             <div class="row">
               <div class="input-field">
-                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedTable._id">
-                
-                <input type="text" [value]="next" name="idTable" #idTable="ngModel" [(ngModel)]="userService.selectedTable.idTable">
-                <select  (change)="ChangingValue($event)" [value]="4" class='form-control' name="numberChair" #numberChair="ngModel" [(ngModel)]="userService.selectedTable.numberChair">
-                  <option value='4'>4</option>
-                  <option value='6'>6</option>
-                </select>
-                <input type="text" name="description" #description="ngModel" [(ngModel)]="userService.selectedTable.description" 
-                placeholder="Enter your Description">
-                <input type="text" name="state" #state="ngModel" [(ngModel)]="userService.selectedTable.state" 
-                placeholder="Enter your State">
-                <div class="card-action">
+                <input [(ngModel)]="input_id" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="_id" autocomplete="_id" required>
+                  <input [(ngModel)]="inputId" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="id" autocomplete="id" required>
+                  <select [(ngModel)]="inputNumberchair" [ngModelOptions]="{standalone: true}" (change)="ChangingValue($event)" class="form-control form-control-lg rounded-0" id="numberChair" autocomplete="numberChair" required>
+                    <option value='4'>4</option>
+                    <option value='6'>6</option>
+                  </select>
+                  <input [(ngModel)]="inputDescription" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="description" autocomplete="description" required>
+                  <select [(ngModel)]="inputStatus" [ngModelOptions]="{standalone: true}" (change)="ChangingValue($event)" class="form-control form-control-lg rounded-0" id="status" autocomplete="status" required>
+                    <option value='1'>Habilitada</option>
+                    <option value='2'>Deshabilitada</option>
+                  </select>
+                  <div class="card-action">
                   <div class="input-field col s12">
                     <button class="btn" (click)="resetForm(tableForm)">Clean</button>
-                    <button class="btn right">Save</button>
+                    <button class="btn right" (click)="ingresarMesa()">Save</button>
                   </div>
 
                 </div>

@@ -15,14 +15,17 @@ declare var M: any;
 })
 export class TableComponent implements OnInit {
 
-  next: number;
+  input_id:String;
+  inputId:String;
+  inputNumberchair:Number;
+  inputDescription:String;
+  inputStatus:Number;
 
   constructor(private userService: UserService, private router:Router ) { }
 
   ngOnInit() {
     this.verifyAdmin();
     this.getTables();
-    this.getUsers();
   }
 
   verifyAdmin(){
@@ -31,33 +34,79 @@ export class TableComponent implements OnInit {
     }
   }
 
-  numberA: number = 10;
-  addTable(form: NgForm){
-    if(form.value._id){
-      this.userService.putTable(form.value).subscribe(res =>{
-      this.resetForm(form);
-      M.toast({html: 'Actualizado Satisfactoriamente'});
-      this.getTables();
+  ingresarMesa(){
+
+    this.userService.getTables().subscribe(res=>{
+      this.userService.tables = res as Table[];
+      let sz = this.userService.tables.length;
+
+      let mesa = new Table()
+      
+      if (localStorage.getItem("edit") == "1"){
+        mesa._id = this.input_id;
+        let next = this.inputId;
+        mesa.idTable = Number(next);
+      } else {
+        let next = res[sz-1].idTable + 1;
+        mesa.idTable = Number(next);
+      }
+
+      localStorage.setItem("edit","0");
+      
+      mesa.numberChair = this.inputNumberchair;
+      mesa.description = this.inputDescription;
+      mesa.state =String(this.inputStatus);
+
+
+      console.log(mesa);
+
+      this.addTable(mesa);
+
+      this.userService.getTables().subscribe(res=>{
+        this.userService.tables = res as Table[];});
+    })
+
+    
+
+  }
+
+
+  addTable(mesa: Table){
+    if(mesa._id){
+      console.log("ingresó aquí")
+      this.userService.putTable(mesa).subscribe(res =>{
+
+        M.toast({html: 'Actualizado Satisfactoriamente'});
+  
+        this.getTables();
       })
     }else{
 
-    this.userService.postTable(form.value).subscribe(res => {
-      this.resetForm(form);
+      this.userService.postTable(mesa).subscribe(res => {
+        console.log(mesa);
+
       M.toast({html: 'Guardado Satisfactoriamente'});
+
       this.getTables();
     });
   }
   }
 
-  editTable(table: Table){
+  editTable(mesa: Table){
+    console.log(mesa)
+    this.input_id = mesa._id;
+    this.inputId = String(mesa.idTable);
+    this.inputNumberchair = mesa.numberChair;
+    this.inputDescription = mesa.description;
+    this.inputStatus = Number(mesa.state);
 
-    this.userService.selectedTable = table;
-    
+  localStorage.setItem("edit","1");
   }
 
   deleteTable(_id: string){
       if(confirm('Are you sure?')){
         this.userService.deleteTable(_id).subscribe (res => {
+
         this.getTables();
         M.toast({html: 'Eliminado Satisfactoriamente'});
       });
@@ -68,14 +117,9 @@ export class TableComponent implements OnInit {
   getTables(){
     this.userService.getTables().subscribe(res=>{
       this.userService.tables = res as Table[];
-      let sz = this.userService.tables.length;
-      this.next = res[sz-1].idTable + 1;
+      console.log(res)
     })
-  }
-  getUsers(){
-    this.userService.getUsers().subscribe(res=>{
-      this.userService.users = res as User[];
-    })
+    
   }
 
   resetForm(form?: NgForm){
