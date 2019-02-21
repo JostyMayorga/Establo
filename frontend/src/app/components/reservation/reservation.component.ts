@@ -152,7 +152,7 @@ export class ReservationComponent implements OnInit {
   }
 
   getReservas(){
-    this.userService.getReservations().subscribe(res=>{
+     this.userService.getReservations().subscribe(res=>{
       this.userService.reservations = res as Reservation[];
       this.reservas = []
       this.disponible = []
