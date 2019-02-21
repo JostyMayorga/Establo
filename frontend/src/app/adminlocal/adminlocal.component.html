@@ -1,3 +1,83 @@
-<p>
-  adminlocal works!
-</p>
+<div class="bg-contact2" style="background-image: url('assets/images/bg_3.jpg');">
+  <div class="container-contact2">
+    <div class="wrap-contact2">
+      
+        <span class="contact2-form-title">
+          Datos de las mesas
+        </span>
+
+      
+
+        <div>
+          <select (change)="ChangingValue($event)" class='form-control' id="selectorDeMesas" >
+            <option>Mesa 1</option>
+            <option>Mesa 2</option>
+            <option>Mesa 3</option>
+            </select>
+        </div>
+
+
+
+        <div class="container">
+            <div class="row">
+              <div class="col-md-3 col-sm-6">
+                <div class="pricingTable">
+                  <div class="pricingTable-header">
+                    <h3 class="heading">Horas de reserva</h3>
+                    
+                  </div>
+                  <div class="pricing-content">
+                    <ul>
+                      <li>1 PM</li>
+                      <li>5 PM</li>
+                      <li>1 PM</li>
+                      <li>5 PM</li>
+                      <li>1 PM</li>
+                      <li>5 PM</li>
+                      
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              
+              
+              
+                <div id="selectorEstado">
+                  <span style="margin-bottom: 10px; font-weight: bold; color: black;">Cambiar estado de la mesa</span>
+                  <select (change)="ChangingValue($event)"  class='form-control' id="selectorDeMesas" style="margin-left: 10px; margin-bottom: 10px;" >
+                    <option>Habilitada</option>
+                    <option>Desahabilitada</option>
+                  </select>
+                  <button  style="color:black;" class="btn btn-dark">Cambiar estado</button>
+                </div>
+              
+            </div>
+
+            
+                
+            
+
+          </div>
+
+
+
+          
+
+
+
+
+
+
+        <div class="container-contact2-form-btn">
+          <div class="wrap-contact2-form-btn">
+            <div class="contact2-form-bgbtn"></div>
+            
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+
