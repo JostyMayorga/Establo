@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   getUsers(){
-    this.userService.getUsers().subscribe(res=>{
+      this.userService.getUsers().subscribe(res=>{
       this.userService.users = res as User[];
       let sz = this.userService.users.length;
       

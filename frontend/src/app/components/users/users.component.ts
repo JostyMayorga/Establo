@@ -12,6 +12,13 @@ declare var M: any;
   providers: [UserService]
 })
 export class UsersComponent implements OnInit {
+  input_id:string;
+  inputId:string;
+  inputName:string;
+  inputApellido:string;
+  inputEmail:string;
+  inputPassword:string;
+  inputType:number;
 
   constructor(private userService: UserService, private router:Router ) { }
 
@@ -26,10 +33,48 @@ export class UsersComponent implements OnInit {
     }
   }
 
-  addUser(form: NgForm){
-    if(form.value._id){
-      this.userService.putUser(form.value).subscribe(res =>{
-        this.resetForm(form);
+  registrar(){
+
+    this.userService.getUsers().subscribe(res=>{
+      this.userService.users = res as User[];
+      let sz = this.userService.users.length;
+
+      let usuario = new User()
+      
+      if (localStorage.getItem("edit") == "1"){
+        usuario._id = this.input_id;
+        let next = this.inputId;
+        usuario.idUser = next;
+      } else {
+        let next = res[sz-1].idUser + 1;
+        usuario.idUser = next;
+      }
+
+      localStorage.setItem("edit","0");
+      
+      usuario.name = this.inputName;
+      usuario.lastName = this.inputApellido;
+      usuario.email =this.inputEmail;
+      usuario.password= this.inputPassword;
+      usuario.type = this.inputType;
+
+      console.log(usuario);
+
+      this.addUser(usuario);
+
+      this.userService.getUsers().subscribe(res=>{
+        this.userService.users = res as User[];});
+    })
+
+    
+
+  }
+
+
+  addUser(user: User){
+    if(user._id){
+      console.log("ingresó aquí")
+      this.userService.putUser(user).subscribe(res =>{
 
         M.toast({html: 'Actualizado Satisfactoriamente'});
   
@@ -37,8 +82,8 @@ export class UsersComponent implements OnInit {
       })
     }else{
 
-    this.userService.postUser(form.value).subscribe(res => {
-      this.resetForm(form);
+      this.userService.postUser(user).subscribe(res => {
+        console.log(user);
 
       M.toast({html: 'Guardado Satisfactoriamente'});
 
@@ -48,8 +93,16 @@ export class UsersComponent implements OnInit {
   }
 
   editUser(user: User){
+    console.log(user)
+    this.input_id = user._id;
+  this.inputId = user.idUser;
+  this.inputName = user.name;
+  this.inputApellido = user.lastName;
+  this.inputEmail = user.email;
+  this.inputPassword = user.password;
+  this.inputType = user.type;
 
-    this.userService.selectedUser = user;
+  localStorage.setItem("edit","1");
   }
 
   deleteUser(_id: string){

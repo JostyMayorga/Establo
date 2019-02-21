@@ -7,32 +7,32 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-user"></i></span>
                     </div>
-                    <input name="" class="form-control" placeholder="Nombre Completo" type="text">
+                    <input [(ngModel)]="inputName" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="name" autocomplete="name" required>
                 </div>
                 <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                      </div>
-                    <input name="" class="form-control" placeholder="Correo electrónico" type="email">
+                     <input [(ngModel)]="inputApellido" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="apellido" autocomplete="apellido" required>
                 </div>
                 <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-lock"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Contraseña" type="password">
+                    <input [(ngModel)]="inputEmail" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="email" autocomplete="email" required>
                 </div>
                 <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-lock"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Repetir contraseña" type="password">
+                    <input [(ngModel)]="inputPassword" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="password" autocomplete="password" required>
                 </div>
                 <!-- form-group// -->                                      
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block"> Crear cuenta  </button>
+                    <button type="submit" class="btn btn-primary btn-block" (click)="registrar()"> Crear cuenta  </button>
                 </div>
                 <!-- form-group// -->      
                 <p class="text-center">Ya tienes una cuenta? <a href="login">Inicia sesión</a> </p>                                                                 

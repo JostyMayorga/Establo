@@ -21,26 +21,24 @@
     <div class="col s5">
       <div class="card">
         <div class="card-content">
-          <form #userForm="ngForm" (ngSubmit)="addUser(userForm)">
+          <form>
             <div class="row">
               <div class="input-field">
-                  <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
-                <input type="text" name="idUser" #idUser="ngModel" [(ngModel)]="userService.selectedUser.idUser" 
-                placeholder="Enter your idUser">
-                <input type="text" name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name" 
-                placeholder="Enter your name">
-                <input type="text" name="lastName" #lastName="ngModel" [(ngModel)]="userService.selectedUser.lastName" 
-                placeholder="Enter your lastName">
-                <input type="text" name="email" #email="ngModel" [(ngModel)]="userService.selectedUser.email" 
-                placeholder="Enter your email">
-                <input type="text" name="password" #password="ngModel" [(ngModel)]="userService.selectedUser.password" 
-                placeholder="Enter your password">
-                <input type="text" name="type" #type="ngModel" [(ngModel)]="userService.selectedUser.type" 
-                placeholder="Enter your type user">
+                <input [(ngModel)]="input_id" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="_id" autocomplete="_id" required>
+                  <input [(ngModel)]="inputId" [ngModelOptions]="{standalone: true}" type="hidden" class="form-control form-control-lg rounded-0" id="id" autocomplete="id" required>
+                  <input [(ngModel)]="inputName" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="name" autocomplete="name" required>
+                  <input [(ngModel)]="inputApellido" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="apellido" autocomplete="apellido" required>
+                  <input [(ngModel)]="inputEmail" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="email" autocomplete="email" required>
+                  <input [(ngModel)]="inputPassword" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-lg rounded-0" id="password" autocomplete="password" required>
+                  <select [(ngModel)]="inputType" [ngModelOptions]="{standalone: true}" (change)="ChangingValue($event)" class="form-control form-control-lg rounded-0" id="type" autocomplete="type" required>
+                    <option value='1'>Administrador General</option>
+                    <option value='2'>Administrador Local</option>
+                    <option value='3'>Usuario</option>
+                  </select>
                 <div class="card-action">
                   <div class="input-field col s12">
                     <button class="btn" (click)="resetForm(userForm)">Clean</button>
-                    <button class="btn right">Save</button>
+                    <button class="btn right" (click)="registrar()">Save</button>
                   </div>
                 </div>
               </div>
