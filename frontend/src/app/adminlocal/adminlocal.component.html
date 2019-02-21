@@ -10,9 +10,7 @@
 
         <div>
           <select (change)="ChangingValue($event)" class='form-control' id="selectorDeMesas" >
-            <option>Mesa 1</option>
-            <option>Mesa 2</option>
-            <option>Mesa 3</option>
+            <option *ngFor="let table of userService.tables">Mesa {{table.idTable}}</option>
             </select>
         </div>
 
